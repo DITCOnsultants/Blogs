@@ -27,7 +27,7 @@ Een nieuwe wizard zal naar voren komen. En hier kunnen we alle basisinstellingen
 Klik op **Next** en we gaan naar Access Policy. 
 Zorg ervoor dat het vinkje staat bij **Azure Disk encryption for volume encryption**. 
 
-![Image](./Images/Encryptie/ResourceAccesss.png)
+![Image](./Images/Encryptie/ResourceAccess.png)
 
 
 
