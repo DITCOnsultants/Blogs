@@ -12,25 +12,22 @@ We nemen ook de stappen door die kunnen worden uitgevoerd in de Azure Portal en 
 De eerste stap is het creëren van een Key Vault.
 Log in op de Azure portal en klik op **Create a resource**.
 
-![Image](./Images/Encryptie/Create Resource.png)
+![Image](./Images/Encryptie/CreateResource.png)
 
 Vul in **Key vault** en klik op **Create**.
 
-![Image](./Images/Encryptie/Create Keyvault.png)
+![Image](./Images/Encryptie/CreateKeyvault.png)
 
 Een nieuwe wizard zal naar voren komen. En hier kunnen we alle basisinstellingen configureren die we nodig hebben om de nieuwe Key Vault met nieuwe schijf encryption te gaan gebruiken.
 
-Vul in: 
-1. naam, 
-2. region
-3. resource
+**Vul in; Naam Region Resource**
 
-![Image](./Images/Encryptie/Keyvault Settings.png)
+![Image](./Images/Encryptie/KeyvaultSettings.png)
 
 Klik op **Next** en we gaan naar Access Policy. 
 Zorg ervoor dat het vinkje staat bij **Azure Disk encryption for volume encryption**. 
 
-![Image](./Images/Encryptie/Resource Accesss.png)
+![Image](./Images/Encryptie/ResourceAccesss.png)
 
 
 
