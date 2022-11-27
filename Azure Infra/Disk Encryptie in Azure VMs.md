@@ -22,8 +22,11 @@ Vul in **Key vault** en klik op **Create**.
 
 Een nieuwe wizard zal naar voren komen. En hier kunnen we alle basisinstellingen configureren die we nodig hebben om de nieuwe Key Vault met nieuwe schijf encryption te gaan gebruiken.
 
-Vul in: **Naam Region Resource**
-
+Vul in: 
+~~~
+Key vault name = Naam 
+Region = Regio
+~~~
 ![Image](./Images/Encryptie/KeyvaultSettings.png)
 
 Klik op **Next** en we gaan naar Access Policy. 
