@@ -91,4 +91,5 @@ in een paar seconden krijg je een mail die eruit ziet als onderstaande.
 ![Image](./Images/OTP/mail1.png)
   
  
+Deze code kun je dan invullen en log je in op de myapps van het bedrijf.
 Dit is de manier waarop je eenmalige toegangscode voor B2B guest configureerd.  
