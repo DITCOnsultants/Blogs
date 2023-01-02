@@ -4,22 +4,22 @@
 ### ==> Disclaimer work in progress <==
 
 ## Voorwoord
-AzureAD B2B staat externe gebruikers toe om toepassingen,services en gegevens van de de Tenant te gebruiken.
-Om gasten toegang toe te staan moeten ze een AzureAD account,Microsoft accont of een Google Federation hebben.(voor @gmail.com en @googlemail.com gebruikers).
-Mocht een user nu geen vandeze accounts hebben dan kan er toch connectie gemaakt worden met een eenmalige toegangscode.
-Deze code word naar het mail adres van de guest user gestuurd en de code blijft dan voor 30 minuten geldig.
+AzureAD B2B staat externe gebruikers toe om toepassingen, services en gegevens van de Tenant te gebruiken.
+Om gasten toegang toe te staan moeten ze een AzureAD account, Microsoft account of een Google Federation hebben. (Voor @gmail.com en @googlemail.com gebruikers).
+Mocht een user nu geen van deze accounts hebben dan kan er toch connectie gemaakt worden met een eenmalige toegangscode.
+Deze code wordt naar het mailadres van de guest user gestuurd en de code blijft dan voor 30 minuten geldig.
 Zodra de guest user zichzelf heeft geautentiseerd blijft de sessie 24 uur valid, daarna moet de user een nieuwe code aanvragen om opnieuw te kunnen inloggen.
-gebruikers van eenmalige toegangscode moeten gebruik maken onderstaande links wanneer ze zich authenticeren.:
+Gebruikers van een eenmalige toegangscode moeten gebruik maken van onderstaande links wanneer ze zich authenticeren:
 
 ````
 https://myapps.microsoft.com/?tenantid=<tenant id> 
 https://portal.azure.com/<tenant id>
 https://myapps.microsoft.com/<verified domain>.onmicrosoft.com
 ````
-in bovenstaande moet uiteraard <tenant id> wel aangepast worden naar de Tenant id van je eigen omgeving.<verified domain> moet dan weer aangepast worden naar de domein naam van je tenant.
+In bovenstaande moet uiteraard tenant id wel aangepast worden naar de Tenant id van je eigen omgeving. Verified domain moet dan weer aangepast worden naar de domeinnaam van je tenant.
   
   
-De mogelijkheid om Eenmalige toegangscode te gebruiken is er al sinds Oktober 2021, en kan gebruikt worden voor bestaande en nieuw te maken enants.
+De mogelijkheid om eenmalige toegangscodes te gebruiken is er al sinds oktober 2021 en kan gebruikt worden voor bestaande en nieuw te maken tenants.
   
 
 
@@ -35,15 +35,15 @@ Ga nu naar **External Identities --> All Identity Providers**
 
 ![Image](./Images/OTP/externalidentities.png)
   
-In de Configured identiy providers lijst klik op **Email one time passcode** 
+In de configured identity providerslijst klik op **Email one time passcode** 
   
 ![Image](./Images/OTP/passcode.png)
 
-Druk op **Yes** bij Email one-time passcode for guests
+Druk op **Yes** bij Email one-time passcode for guests.
   
 ![Image](./Images/OTP/passcode2.PNG)
   
-We hebben nu de feature geenabled, het is nu tijd om de eenmalige toegangscode te testen, ik ga nu een user uitnodigen en maak hem dan lid van de groep OCTID-Sales
+We hebben nu de feature geënabled, het is nu tijd om de eenmalige toegangscode te testen, ik ga nu een user uitnodigen en maak hem dan lid van de groep OCTID-Sales.
   
 # Creer een AzureAD B2B Guest User
   
@@ -53,13 +53,13 @@ We hebben nu de feature geenabled, het is nu tijd om de eenmalige toegangscode t
   
 ![Image](./Images/OTP/newuser.png)    
 
-Op de pagina van nieuwe user vul de volgende gegevens in.
+Op de pagina van nieuwe user vul de volgende gegevens in:
   
 ~~~
   
 Template =  Invite user
   
-Identitiy:
+Identity:
 
 Name = Volledige naam van de guest user
 Email address = Mailadres van de guest user
@@ -86,10 +86,10 @@ De guest user krijgt nu een melding dat ze een code verstuurd krijgt.
   
 ![Image](./Images/OTP/sendcode.png)
   
-in een paar seconden krijg je een mail die eruit ziet als onderstaande.
+In een paar seconden krijg je een mail die eruit ziet als onderstaande:
 
 ![Image](./Images/OTP/mail1.png)
   
  
-Deze code kun je dan invullen en log je in op de myapps van het bedrijf.
+Deze code kun je invullen en dan log je in op de myapps van het bedrijf.
 Dit is de manier waarop je eenmalige toegangscode voor B2B guest configureerd.  
