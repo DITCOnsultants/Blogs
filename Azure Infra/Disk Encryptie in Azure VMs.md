@@ -26,6 +26,7 @@ Vul in:
 ~~~
 Key vault name = Naam 
 Region = Regio
+Pricing Tier = Standard of Premium
 ~~~
 ![Image](./Images/Encryptie/KeyvaultSettings.png)
 
@@ -58,6 +59,15 @@ Enabled = Yes
 ![Image](./Images/Encryptie/CreateKeys.png)
 
 ## Encrypt een VM via de Azure Portal.
+
+
+Tegenwoordig biedt de Azure Portal een eenvoudige manier om uw VM te encrypten met integratie van Azure Key Vault.
+Klik in de VM waar we de schijf willen encrypten op Disks (nummer 1) en een lijst met alle schijven die aan de gegeven VM gekoppeld zijn, wordt weergegeven.
+Bij nummer 3 kunnen we de huidige status van de encryption  voor een bepaalde schijf zien.
+Om het coderingsproces te starten klikken we op Encryption (nummer 2)
+
+![Image](./Images/Encryptie/EncryptDisk.png)
+
 
 ## Schijven en encryptie scenario’s beheren.
 
