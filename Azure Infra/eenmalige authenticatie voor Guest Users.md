@@ -31,4 +31,64 @@ Log in op de Azure portal en ga naar **Azure Active Directory**.
 
 ![Image](./Images/OTP/AAD.png)
 
+Ga nu naar **External Identities --> All Identity Providers**
 
+![Image](./Images/OTP/externalidentities.png)
+  
+In de Configured identiy providers lijst klik op **Email one time passcode** 
+  
+![Image](./Images/OTP/passcode.png)
+
+Druk op **Yes** bij Email one-time passcode for guests
+  
+![Image](./Images/OTP/passcode2.PNG)
+  
+We hebben nu de feature geenabled, het is nu tijd om de eenmalige toegangscode te testen, ik ga nu een user uitnodigen en maak hem dan lid van de groep OCTID-Sales
+  
+# Creer een AzureAD B2B Guest User
+  
+ Ga naar Azure Active directrory -> Users en klik dan op **New User**
+ 
+ Klik nu ook op **Invite external user**
+  
+![Image](./Images/OTP/newuser.png)    
+
+Op de pagina van nieuwe user vul de volgende gegevens in.
+  
+~~~
+  
+Template =  Invite user
+  
+Identitiy:
+
+Name = Volledige naam van de guest user
+Email address = Mailadres van de guest user
+First Name = Voornaam van de guest user
+Last Name =  Achternaam van de guest user
+  
+~~~
+  
+![Image](./Images/OTP/newuser1.png) 
+  
+**Klik** op Groups en **selecteer** dan de groep OCTID-Sales en daarna **klik** op Save
+  
+![Image](./Images/OTP/newuser2.png) 
+  
+**Druk** op Invite 
+  
+![Image](./Images/OTP/invite.png) 
+  
+De user krijgt een mail met een invite hiervoor.
+  
+![Image](./Images/OTP/mail.png)
+  
+De guest user krijgt nu een melding dat ze een code verstuurd krijgt.
+  
+![Image](./Images/OTP/sendcode.png)
+  
+in een paar seconden krijg je een mail die eruit ziet als onderstaande.
+
+![Image](./Images/OTP/mail1.png)
+  
+ 
+Dit is de manier waarop je eenmalige toegangscode voor B2B guest configureerd.  
