@@ -129,7 +129,7 @@ De functie verzamelt alle vereiste informatie in variabelen en start de encrypti
 Hier is de code voor de functie en om deze in een Powershell-sessie te gebruiken,vul in EncryptVM -Keyvaultname,KeyName,VMname
 
 
-~~~
+````
 Function EncryptVM($KeyVault,$KeyName,$VM){
 $kv = Get-azKeyVault -VaultName $KeyVault
 $key = get-Azkeyvaultkey -Name $KeyName -VaultName $KeyVault
@@ -138,7 +138,7 @@ Set-AzVmDiskEncryptionExtension -ResourceGroupName $kv.ResourceGroupName `
 -DiskEncryptionKeyVaultUrl $kv.VaultURI `
 -VMName $VM -KeyEncryptionKeyVaultId $kv.ResourceID `-KeyEncryptionKeyUrl $key.id -SkipVmBackup -VolumeType "All"}
 
-~~~
+````
 
 Meer informatie over schijf encryptie vind je [hier](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/disk-encryption-faq#can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption)
 
