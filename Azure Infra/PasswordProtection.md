@@ -103,6 +103,7 @@ Volgende stap is het installeren van de Azure AD password protection DC agent te
 8.Dubbelklik op de msi file en start de installatie.
 ![Image](./Images/PasswordProtection/msi2.png)
 9. Na de installatie heb je een reboot nodig
+
 ![Image](./Images/PasswordProtection/reboot.png)
 
 Nu is de installatie klaar en kun je testen of de bestaande wachtwoorden geweigerd worden.
