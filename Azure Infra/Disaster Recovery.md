@@ -1,111 +1,64 @@
-# Password Protection
+# Disaster Recovery
 
 ### ==> Disclaimer work in progress <==
 
 ## Voorwoord
 
-Complexe wachtwoorden zijn basis requirements om je systeem te beschermen tegen een cyberaanval.
-Zelfs vandaag de dag kunnen de meeste cyber-attacks voorkomen worden als users een meer complex en vooral niet te raden wachtwoord zouden gebruiken.
-Cyber-attackers proberen altijd eerst het low hanging fruit. Dus met een password protection policy kun je het ze in ieder geval al een stuk moeilijker maken.
-In een On-Premises omgeving kunnen we complexe wachtwoorden afdwingen via Group Policy’s, echter kunnen we met deze methode geen wachtwoord combinaties blokken. Dit kan wel via password protection.
-Azure AD support nu echter banned password list en smart lockout voor zowel Azure AD als ook on-premise AD in een hybrid omgeving. (Smart lockout gebruikt cloud intelligence om wachtwoord spoofing te detecteren).
+Als je een virtuele machine hebt draaien in Azure en je wilt er voor zorgen dat je machines zoveel mogelijk beschermd zijn tegen downtime, dan zijn er meerdere dingen die je wilt bekijken in de termen van availability.
+Je moet zorgen dat je over de benodigde uptime beschikt in de regio waar de vm’s worden uitgevoerd.
+Hiervoor kun je denken aan verschillende storage opties zoals Premium Storage die voor 1 disk een SLA biedt van 99,9%. Verder kun je werken met Availability Sets en Availability zones, hiermee verdeel je een belangrijke server over meerdere datacenters of meerdere zones in 1 regio.
+Echter willen we ook de server beschermen tegen het uitvallen van een regio. Hiervoor is Azure Site Recovery (ASR) een geschikte oplossing. Hiermee repliceren we de machine asynchroon naar de andere regio of regio’s.
 
-Laten we nu de setup van Azure AD password protection er eens bij pakken om de hybrid omgeving te beveiligen.
+Laten we nu de setup van ASR er eens bijpakken.
 
 
-## Setup Azure AD Password Protection
 
-Log in op de Azure portal en klik op **Azure Active Directory**
+## Setup Disaster Recovery voor Azure Vm’s
 
-![Image](./Images/PasswordProtection/AAD.png)
+Het instellen van een Azure Site Recovery voor een vm kan redelijk eenvoudig zijn. In ons geval hebben we een virtuele machine die uitgevoerd wordt in de regio West-Europe. Voordat we de Disaster Recovery kunnen configureren moet je er voor zorgen dat je de omgeving op de juiste manier geconfigureerd en ontworpen hebt.
+Mocht je willen weten welke vereisten er zijn rondom je architectuur, bekijk dan de onderstaande links.
 
-Open **Authentication methods**
-.
+-[Support Matrix for Azure VM disaster recovery between Azure Regions](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-support-matrix?WT.mc_id=itopstalk-blog-thmaure)
 
-![Image](./Images/PasswordProtection/AuthenticationMethods.png)
+-[Azure to Azure disaster recovery architecture](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-architecture?WT.mc_id=itopstalk-blog-thmaure)
 
-4)	Nu wordt er een nieuwe window geopend om password protection setting te configureren.
+Er zijn 3 manieren om disaster recovery for Azure vm’s te configuren
 
-Vul in: 
 ~~~
-Lockout Threshold = hoeveel pogingen voor het account locked (by default op 10)
-Lockout duration in seconds = Tijd dat je niet kunt inloggen (by default op 60 seconden)
-
-In Custom banned password :
-Enforce custom list  = Yes
-Custom banned password list = hier vul je alle wachtwoorden in waarvan je niet wilt dat ze toegevoegd worden, 
-                              denk aan password, welkom, bedrijfsnaam, voornamen, achternamen, postcodes, etc
+- Azure Powershell/AzureCLI
+- Azure Recovery Service vault
+- replicatie direct starten vanuit de vm
 
 ~~~
 
-![Image](./Images/PasswordProtection/customsmartlockout.png)
+de replicatie direct starten vanuit de vm is de meest gebruikte manier en die zal ik hier dan ook nog verder bespreken.
 
-5)	Om de policy ook door te voeren op je on-premise AD omgeving vul je het volgende in:
+**Ga naar** de vm via de Azure Portal
+**Open Disaster Recovery** onder Operations
+![Image](./Images/DisasterRecovery/disaster.png)
 
-~~~
-Enable password protection on Windows Server Active Directory = Yes
-Mode = Enforced of Audit (bij audit zal hij alleen loggings maken)
-~~~
-![Image](./Images/PasswordProtection/PPAD.png)
+Hier is het makkelijk en hoeven we alleen maar de Target Regio in te vullen. In deze [lijst](https://docs.microsoft.com/en-us/azure/availability-zones/cross-region-replication-azure) zie je wat de Cross regio’s zijn. Hier is het makkelijker en more common sense om deze te kiezen als Target Region.
 
-Druk op **Save** hiermee sla je alle wijzigingen op.
-![Image](./Images/PasswordProtection/save.png)
+Hierna moeten we een aantal Advanced settings configureren. ASR geeft zelf al een paar suggesties, maar je kunt dit aanpassen naar wat jullie denken dat correct is.
 
+![Image](./Images/DisasterRecovery/advanced.png)
 
-## Installeren Azure agents op on-premise servers.
+Verder kun je ook de Storage en Replication Settings aanpassen.
+Hierbij kun je bij Storage bijvoorbeeld kiezen om niet een Premium SSD maar slechts een HDD disk of een Standard SSD disk te gebruiken, dit om kosten te besparen.
+Verder kun je bij Replication settings de Replication Policy aanpassen en daarmee de sync laten lopen.
+![Image](./Images/DisasterRecovery/replication.png)
 
-Om de password protection ook toe te passen op je on-premise omgeving moeten we 2 azure componenten installeren.
+Als je alles aangepast hebt naar hoe je dit zelf zou willen dan kun je op Review+Start Replication klikken. Dit zal een aantal uren duren voor dit is aangemaakt en de replicatie heeft gelopen. (Dit is afhankelijk van de grootte van de vm).
 
-1. Azure AD password protection proxy service
-2. Azure AD password protection DC agent
+## Failover Azure VM naar een andere regio.
 
-De manier van werken van deze agents worden perfect uitgelegd in onderstaande foto.
-![Image](./Images/PasswordProtection/adpp.png)
+Nadat we de Disaster recovery hebben ingesteld en de replicatie heeft gelopen kunnen we nu wat grafische bronnen bekijken die duidelijk aangeven wat er gebeurt en hoe de resources met elkaar verbonden zijn.
+![Image](./Images/DisasterRecovery/replication1.jpg)
 
-Voordat we de Azure AD password protection service gaan installeren moeten we het volgende bedenken.
-~~~
--	Op dit moment mag je 2 proxy servers installeren onder 1 forest.
--	Het wordt ondersteund om het te installeren op een DC maar dan moet deze server wel een internet connectie hebben.
--	Om de service te kunnen registreren moet je Domain Admin rechten hebben.
--	Proxy servers moeten constant een communicatiemogelijkheid hebben tot de DC agent.
--	Je moet een Tenant administrator account hebben om in Azure de proxy’s te kunnen configureren.
-~~~
-Start van de installatie:
+Je kunt een failover uitvoeren waarmee je een productie failover uitvoert van de vm. Als de regio waar de source op staat nog beschikbaar is kun je ASR de machine laten stoppen en de laatste wijzigingen laten syncen, zodoende hebben we geen gegevens verlies.
+Dit is uiteraard alleen mogelijk als de source regio nog bestaat. Anders neemt ASR de laatst bestaande restore point.
+![Image](./Images/DisasterRecovery/restorepoint.jpg)
 
+Voorbereid zijn op disaster recovery is uitstekend. We willen er echter zeker van zijn dat het werkt als je het nodig hebt. Je wilt niet wachten tot een echte ramp toeslaat om erachter te komen of alles correct is ingesteld. Dit is waar Testfailover voor is. Testfailover is een mogelijkheid voor ons om failover van de virtuele machine naar een geïsoleerd virtueel netwerk in de doelregio te maken om de virtuele machine en toepassing te kunnen testen zonder enige impact op de productie-implementatie.‎
 
-1. **Log in** op de server als Domain Admin
-2. Ga naar deze [hier](https://www.microsoft.com/download/details.aspx?id=57071)  en download AzureADPasswordProtectionProxy.msi
-![Image](./Images/PasswordProtection/download.png)
-
-3.Dubbelklik op de msi file en start de installatie.
-
-  ![Image](./Images/PasswordProtection/msi.png)
-
-4. Om te kijken of de service draait: open powershell en vul de volgende rules in:
-
-````
-Import-Module AzureADPasswordProtection
-Get-Service AzureADPasswordProtectionProxy | fl
-
-````
-![Image](./Images/PasswordProtection/powershell.png)
-
-5. nu moeten we de proxy gaan registreren.Doe dit in powershell met de volgende rule:
-
-````
-$ADadmin = Get-Credential ( Je hebt hiervoor je Global admin account nodig)
-Register-AzureADPasswordProtectionProxy -AzureCredential $ADadmin.
-````
-Volgende stap is het installeren van de Azure AD password protection DC agent te installeren (deze moet op een domain controller geïnstalleerd worden, deze installatie heeft een reboot nodig).
-
-6. **Login** op de server als Domain admin
-7.  Ga naar deze [hier](https://www.microsoft.com/download/details.aspx?id=57071)  en download AzureADPasswordProtectionDCAgent.msi.
-8.Dubbelklik op de msi file en start de installatie.
-![Image](./Images/PasswordProtection/msi2.png)
-9. Na de installatie heb je een reboot nodig
-
-![Image](./Images/PasswordProtection/reboot.png)
-
-Nu is de installatie klaar en kun je testen of de bestaande wachtwoorden geweigerd worden.
-
-
+‎Als je meerdere vm's hebt die je in een specifieke volgorde wilt failoveren en misschien zelfs enkele extra scripts wilt laten uitvoeren om volledig failover uit een regio uit te voeren, biedt ASR ons ook [Recoveryplans](https://docs.microsoft.com/en-us/azure/site-recovery/recovery-plan-overview?WT.mc_id=itopstalk-blog-thmaure). Recoveryplans zijn idealer voor complexere scenario's dan slechts één virtuele machine.‎
