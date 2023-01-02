@@ -68,8 +68,53 @@ Om het coderingsproces te starten klikken we op Encryption (nummer 2)
 
 ![Image](./Images/Encryptie/EncryptDisk.png)
 
+In het nieuwe tabblad hebben we drie opties: Geen (no encryption), OS disk (alleen de schijf met het operating system), of OS and data disk (alle schijven op deze VM).
+
+Op de Encryption settings pagina selecteer het volgende:
+
+~~~~
+Disk to Encrypt = OS Disk
+Key Vault =  de aangemaakte Key Vault
+Key =  Selecteer de Key.
+Version = Versie 
+~~~~
+![Image](./Images/Encryptie/Encryptionsettings.png)
+
+Selecteer de Key die we zojuist hebben aangemaakt en klik daarna op Save.
+
+Zodra je op opslaan klikt, wordt een dialoogvenster weergegeven waarin om een bevestiging gevraagd wordt, Klik op Ja.
+Dit proces zorgt ervoor dat de VM opnieuw wordt opgestart, zorg ervoor dat je dit doet tijdens gepland onderhoud of als de gebruikers hiervan op de hoogte zijn.
+
+Als onderdeel van de restart, zal de AzureDiskEncryption als extensie toegevoegd worden aan de VM.
+
+![Image](./Images/Encryptie/AzureDiskEncryptionExtensie.png)
+
 
 ## Schijven en encryptie scenario’s beheren.
+
+Life is good, de schijf van het besturingssysteem wordt geëncrypt.
+Een ding is echter zeker, er zullen nu veranderingen plaatsvinden!
+Laten we een aantal mogelijke scenario’s uitvoeren bij het beheren van schijf encryption om te zien hoe je moet handelen wanneer deze acties zich voordoen.
+
+Laten we beginnen met een vereiste om een nieuwe data schijf toe te voegen aan dezelfde VM waaraan we tijdens dit artikel ook gewerkt hebben.
+Het belangrijkste (voordat u nadenkt over encryption) is om te begrijpen dat de schijf aanwezig moet zijn, en in het besturingssysteem geconnect moet zijn om de encryption te laten werken.
+Als je de schijf toevoegt via de Azure Portal, wordt de schijf op de VM weergegeven als niet-geïnitialiseerd  en wordt deze niet gecodeerd.
+Zorg ervoor dat u een letter op de schijf initialiseert, formatteert en toewijst.
+
+Nadat u de nieuwe schijf aan het besturingssysteem hebt gepresenteerd,
+gaat u terug naar de knop encryption en wijzigt u de gegevens in besturingssysteem en gegevensschijven en drukt u op opslaan.
+
+Op dit moment is een herstart niet nodig en na de voltooiing worden de nieuwe schijven encrypt.
+
+![Image](./Images/Encryptie/Encryptdatadisk.png)
+
+
+We kunnen de encryption in actie zien in de onderstaande afbeelding.
+We hebben zojuist een nieuw volume toegevoegd (Letter D:). Na het uitvoeren van de bovenstaande procedure is de nieuwe schijf geëncrypt als onderdeel van het proces.
+![Image](./Images/Encryptie/DataDisk.png)
+
+Wanneer je nieuwe schijven toevoegt aan de VM, moeten we het proces herhalen om de nieuwe schijven ook te versleutelen. (Houd hier rekening mee).
+
 
 ## Disk Encryptie gebruiken met PowerShell
 
@@ -78,7 +123,22 @@ Met al die informatie zou de PowerShell cmdlet (**Set-AzVMDiskEncryptionExentsio
 ```
 Set-AzVmDiskEncryptionExtension -ResourceGroupName <ResourceGroupName> -VMName <VMName> -DiskEncryptionKeyVaultId  <Key Vault Resource ID> -DiskEncryptionKeyVaultUrl <Key Vault URL> -KeyEncryptionKeyVaultId <Key Vault Resource ID> -KeyEncryptionKeyUrl <Key URL> -VolumeType "All"
 ```
+Ik moet toegeven dat het verzamelen van alle informatie zeker geen makkelijke job is, omdat je die informatie moet ophalen met behulp van 2 cmdlets en de stukjes bij elkaar moet zetten om de bovenstaande cmdlet te maken.
+Ik heb hiervoor een functie gevonden om het proces verder te automatiseren, je moet hiervoor de Key Vault naam, Key naam en de VM naam opgeven.
+De functie verzamelt alle vereiste informatie in variabelen en start de encryptie van alle schijven op de aangeleverde VM.
+Hier is de code voor de functie en om deze in een Powershell-sessie te gebruiken,vul in EncryptVM -Keyvaultname,KeyName,VMname
 
+
+~~~
+Function EncryptVM($KeyVault,$KeyName,$VM){
+$kv = Get-azKeyVault -VaultName $KeyVault
+$key = get-Azkeyvaultkey -Name $KeyName -VaultName $KeyVault
+Set-AzVmDiskEncryptionExtension -ResourceGroupName $kv.ResourceGroupName `
+-DiskEncryptionKeyVaultId  $kv.ResourceID `
+-DiskEncryptionKeyVaultUrl $kv.VaultURI `
+-VMName $VM -KeyEncryptionKeyVaultId $kv.ResourceID `-KeyEncryptionKeyUrl $key.id -SkipVmBackup -VolumeType "All"}
+
+~~~
 
 Meer informatie over schijf encryptie vind je [hier](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/disk-encryption-faq#can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption)
 
