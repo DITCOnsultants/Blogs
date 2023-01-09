@@ -8,7 +8,7 @@ Complexe wachtwoorden zijn basis requirements om je systeem te beschermen tegen 
 Zelfs vandaag de dag kunnen de meeste cyber-attacks voorkomen worden als users een meer complex en vooral niet te raden wachtwoord zouden gebruiken.
 Cyber-attackers proberen altijd eerst het low hanging fruit. Dus met een password protection policy kun je het ze in ieder geval al een stuk moeilijker maken.
 In een On-Premises omgeving kunnen we complexe wachtwoorden afdwingen via Group Policy’s, echter kunnen we met deze methode geen wachtwoord combinaties blokken. Dit kan wel via password protection.
-Azure AD support nu echter banned password list en smart lockout voor zowel Azure AD als ook on-premise AD in een hybrid omgeving. (Smart lockout gebruikt cloud intelligence om wachtwoord spoofing te detecteren).
+Azure AD support nu banned password list en smart lockout voor zowel Azure AD als ook on-premise AD in een hybrid omgeving. (Smart lockout gebruikt cloud intelligence om wachtwoord spoofing te detecteren).
 
 Laten we nu de setup van Azure AD password protection er eens bij pakken om de hybrid omgeving te beveiligen.
 
@@ -49,6 +49,7 @@ Mode = Enforced of Audit (bij audit zal hij alleen loggings maken)
 ![Image](./Images/PasswordProtection/PPAD.png)
 
 Druk op **Save** hiermee sla je alle wijzigingen op.
+
 ![Image](./Images/PasswordProtection/save.png)
 
 
