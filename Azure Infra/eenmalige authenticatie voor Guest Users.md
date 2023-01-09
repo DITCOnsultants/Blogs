@@ -43,9 +43,11 @@ Druk op **Yes** bij Email one-time passcode for guests.
   
 ![Image](./Images/OTP/passcode2.PNG)
   
-We hebben nu de feature geënabled, het is nu tijd om de eenmalige toegangscode te testen, ik ga nu een user uitnodigen en maak hem dan lid van de groep OCTID-Sales.
+We hebben nu de feature geënabled, het is nu tijd om de eenmalige toegangscode te testen.
+
+Ik ga nu een user uitnodigen en maak hem dan lid van de groep OCTID-Sales.
   
-# Creer een AzureAD B2B Guest User
+# Creëer een AzureAD B2B Guest User
   
  Ga naar Azure Active directrory -> Users en klik dan op **New User**
  
