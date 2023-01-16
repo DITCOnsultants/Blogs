@@ -35,30 +35,30 @@ de replicatie direct starten vanuit de vm is de meest gebruikte manier en die za
 
 **Ga naar** de vm via de Azure Portal
 **Open Disaster Recovery** onder Operations
-![Image](./Images/DisasterRecovery/disaster.png)
+![Image](./../Images/DisasterRecovery/disaster.png)
 
 Hier is het makkelijk en hoeven we alleen maar de Target Regio in te vullen. In deze [lijst](https://docs.microsoft.com/en-us/azure/availability-zones/cross-region-replication-azure) zie je wat de Cross regio’s zijn. Hier is het makkelijker en more common sense om deze te kiezen als Target Region.
 
 Hierna moeten we een aantal Advanced settings configureren. ASR geeft zelf al een paar suggesties, maar je kunt dit aanpassen naar wat jullie denken dat correct is.
 
-![Image](./Images/DisasterRecovery/advanced.png)
+![Image](./../Images/DisasterRecovery/advanced.png)
 
 Verder kun je ook de Storage en Replication Settings aanpassen.
 Hierbij kun je bij Storage bijvoorbeeld kiezen om niet een Premium SSD maar slechts een HDD disk of een Standard SSD disk te gebruiken, dit om kosten te besparen.
 Verder kun je bij Replication settings de Replication Policy aanpassen en daarmee de sync laten lopen.
 
-![Image](./Images/DisasterRecovery/replication.png)
+![Image](./../Images/DisasterRecovery/replication.png)
 
 Als je alles aangepast hebt naar hoe je dit zelf zou willen dan kun je op Review+Start Replication klikken. Dit zal een aantal uren duren voor dit is aangemaakt en de replicatie heeft gelopen. (Dit is afhankelijk van de grootte van de vm).
 
 ## Failover Azure VM naar een andere regio.
 
 Nadat we de Disaster recovery hebben ingesteld en de replicatie heeft gelopen kunnen we nu wat grafische bronnen bekijken die duidelijk aangeven wat er gebeurt en hoe de resources met elkaar verbonden zijn.
-![Image](./Images/DisasterRecovery/replication1.jpg)
+![Image](./../Images/DisasterRecovery/replication1.jpg)
 
 Je kunt een failover uitvoeren waarmee je een productie failover uitvoert van de vm. Als de regio waar de source op staat nog beschikbaar is kun je ASR de machine laten stoppen en de laatste wijzigingen laten syncen, zodoende hebben we geen gegevens verlies.
 Dit is uiteraard alleen mogelijk als de source regio nog bestaat. Anders neemt ASR de laatst bestaande restore point.
-![Image](./Images/DisasterRecovery/restorepoint.jpg)
+![Image](./../Images/DisasterRecovery/restorepoint.jpg)
 
 Voorbereid zijn op disaster recovery is uitstekend. We willen er echter zeker van zijn dat het werkt als je het nodig hebt. Je wilt niet wachten tot een echte ramp toeslaat om erachter te komen of alles correct is ingesteld. Dit is waar Testfailover voor is. Testfailover is een mogelijkheid voor ons om failover van de virtuele machine naar een geïsoleerd virtueel netwerk in de doelregio te maken om de virtuele machine en toepassing te kunnen testen zonder enige impact op de productie-implementatie.‎
 
