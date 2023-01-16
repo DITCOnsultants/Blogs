@@ -1,6 +1,6 @@
 # Disaster Recovery
 
-### ==> Disclaimer work in progress <==
+### ==> Disclaimer work in progress. <==
 
 ## Voorwoord
 
