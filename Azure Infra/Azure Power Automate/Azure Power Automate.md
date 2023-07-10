@@ -20,6 +20,17 @@ Zoek daar op **Automation** en klik daarna op **Create**:
 
 ![Image](./../Images/Powerautomate/AutomationAccountCreate.JPG)
 
+Je komt nu in de basic tab en hier vullen we nu het volgende in:
+Vul in: 
+~~~
+Resource Group = de Resource Group waar het Automation account moet komen
+Automation Account name = de naam die je aan het automation account te willen geven
+Region = kies een regio.
+~~~
+![Image](./../Images/Powerautomate/BasicAutomation.JPG)
+
+
+
 ## Failover Azure VM naar een andere regio.
 
 Nadat we de Disaster recovery hebben ingesteld en de replicatie heeft gelopen kunnen we nu wat grafische bronnen bekijken die duidelijk aangeven wat er gebeurt en hoe de resources met elkaar verbonden zijn.
