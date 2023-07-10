@@ -9,7 +9,7 @@ Wat je het liefst zou willen is dat je op 1 locatie een VM kan bouwen als ook de
 Hiervoor kunnen we PowerAutomate gebruiken, we kunnen hierbij een VM bouwen en daarna kunnen er runbooks gestart worden om een complete VM op te leveren. Hieronder gaan we in op welke stappen je moet uitvoeren om dit werkende te krijgen.
 
 
-## Creeren van een Automation Account
+## Creëren van een Automation Account
 
 Het configureren van een Automation account is relatief eenvoudig.
 Ga naar **Create a Resource**:
@@ -42,9 +42,16 @@ Klik daarna op **Review + Create** en daarna op **Create**
 
 ![Image](./../Images/Powerautomate/ReviewAutomation.JPG)
 
+Nu word het Automation Account gecreërd en kunnen we door naar het maken van een Runbook.
+
+~~~
+**Deployen via Azure Powershell**
+
+New-AzAutomationAccount -Name "AutomationAccount" -Location "West Europe" -ResourceGroupName "ResourceGroup01
+~~~
 
 
-## Failover Azure VM naar een andere regio.
+## Creëren van een Runbook voor .
 
 Nadat we de Disaster recovery hebben ingesteld en de replicatie heeft gelopen kunnen we nu wat grafische bronnen bekijken die duidelijk aangeven wat er gebeurt en hoe de resources met elkaar verbonden zijn.
 ![Image](./../Images/DisasterRecovery/replication1.jpg)
