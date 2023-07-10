@@ -51,9 +51,9 @@ New-AzAutomationAccount -Name "AutomationAccount" -Location "West Europe" -Resou
 ~~~
 
 
-## Creëren van een Runbook voor het Deployen van een Azure Pipeline .
+## Creëren van een Runbook voor het Deployen van een Azure Pipeline
 
-Klik op de Go to Resource en dan kom je uit in het automation account.
+Klik op de **Go to Resource** en dan kom je uit in het automation account.
 
 ![Image](./../Images/Powerautomate/GOTOResources.jpg)
 
