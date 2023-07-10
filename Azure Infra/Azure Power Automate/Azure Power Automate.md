@@ -38,6 +38,9 @@ In het tabblad Networking gaan we nu geen aanpassing makenn, echter mijn advies 
 
 ![Image](./../Images/Powerautomate/NetworkingAutomation.jpg)
 
+Klik daarna op **Review + Create** en daarna op **Create**
+
+![Image](./../Images/Powerautomate/ReviewAutomation.JPG)
 
 
 
