@@ -23,12 +23,15 @@ Zoek daar op **Automation** en klik daarna op **Create**:
 Je komt nu in de basic tab en hier vullen we nu het volgende in:
 Vul in: 
 ~~~
-Resource Group = de Resource Group waar het Automation account moet komen
-Automation Account name = de naam die je aan het automation account te willen geven
-Region = kies een regio.
+Resource Group = "de Resource Group waar het Automation account moet komen"
+Automation Account name = "de naam die je aan het automation account te willen geven"
+Region = "kies een regio"
 ~~~
 ![Image](./../Images/Powerautomate/BasicAutomation.JPG)
 
+In het tabblad advanced hoeven we niks aan te passen aangezien we gebruik gaan maken van een System Managed Identity
+
+![Image](./../Images/Powerautomate/AdvancedAutomation.jpg)
 
 
 ## Failover Azure VM naar een andere regio.
