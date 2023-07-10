@@ -1,16 +1,12 @@
-# Disaster Recovery
+# Azure Power Automate 
 
 ### ==> Disclaimer work in progress. <==
 
 ## Voorwoord
 
-Als je een virtuele machine hebt draaien in Azure en je wilt er voor zorgen dat je machines zoveel mogelijk beschermd zijn tegen downtime, dan zijn er meerdere dingen die je wilt bekijken in de termen van availability.
-Je moet zorgen dat je over de benodigde uptime beschikt in de regio waar de vm’s worden uitgevoerd.
-Hiervoor kun je denken aan verschillende storage opties zoals Premium Storage die voor 1 disk een SLA biedt van 99,9%. Verder kun je werken met Availability Sets en Availability zones, hiermee verdeel je een belangrijke server over meerdere datacenters of meerdere zones in 1 regio.
-Echter willen we ook de server beschermen tegen het uitvallen van een regio. Hiervoor is Azure Site Recovery (ASR) een geschikte oplossing. Hiermee repliceren we de machine asynchroon naar de andere regio of regio’s.
-
-Laten we nu de setup van ASR er eens bijpakken.
-
+Veel IT-ers houden zich nog altijd bezig met het simpele werk als het deployen van een Virtual machine via de portal, of soms zelfs al wel via Devops pipelines. Om daarna steeds op elke machine in te loggen, en alle extra taken uit te voeren.
+Wat je het liefst zou willen is dat je op 1 locatie een VM kan bouwen als ook de inrichting op de machine uitvoeren.
+Hiervoor kunnen we PowerAutomate gebruiken, we kunnen hierbij een VM bouwen en daarna kunnen er runbooks gestart worden om een complete VM op te leveren. Hieronder gaan we in op welke stappen je moet uitvoeren om dit werkende te krijgen.
 
 
 ## Setup Disaster Recovery voor Azure Vm’s
