@@ -12,11 +12,12 @@ Hiervoor kunnen we PowerAutomate gebruiken, we kunnen hierbij een VM bouwen en d
 ## Creeren van een Automation Account
 
 Het configureren van een Automation account is relatief eenvoudig.
-
 Ga naar **Create a Resource**:
+
 ![Image](./../Images/Powerautomate/CreateResource.JPG)
 
-Zoek daar op **Automation** en klik daarna op **Create**
+Zoek daar op **Automation** en klik daarna op **Create**:
+
 ![Image](./../Images/Powerautomate/AutomationAccountCreate.JPG)
 
 ## Failover Azure VM naar een andere regio.
