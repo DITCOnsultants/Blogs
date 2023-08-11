@@ -141,4 +141,20 @@ hierna klik je eerst op **Save** en daarna op **Publish**
 
  ![Image](./../Images/RunPowershellHybrid/Runbook3.JPG)
 
+
+## Run en Schedule Powershell Script als Azure Automation Runbook via Hybrid Worker group op een Azure Arc machine.
+
+Jekunt nu je PowerShell-scripts uitvoeren en schedule als Azure Automation-runbooks op de hybrid workergroups die zijn verbonden met Azure Arc. 
+Wanneer je het runbook uitvoert, kun je  nu selecteren op welke hybrid worker group dit script moet worden uitgevoerd.
+
+
+ ![Image](./../Images/RunPowershellHybrid/Test1.JPG)
+
+ Via Output kun je nu zien wat er gebeurd..
+
+ ![Image](./../Images/RunPowershellHybrid/Test2.JPG)
+
+ Je kunt dit runbook nu ook Schedule. Dit is heel eenvoudig door te klikken op **Link to Schedule** en selecteer of creer de schedule met zijn parameters.
  
+ 
+  ![Image](./../Images/RunPowershellHybrid/Test3.JPG)
