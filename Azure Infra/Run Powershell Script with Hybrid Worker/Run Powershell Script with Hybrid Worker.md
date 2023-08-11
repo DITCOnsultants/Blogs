@@ -106,3 +106,39 @@ Hierna zal de Hybrid Extension automatisch op deze machine geinstalleerd worden.
 Mocht je willen kun je hier ook altijd nog meer servers toevoegen maar wij houden het hier even bij 1.
 
 -[Deploy an extension-based Hybrid Runbook Worker in Azure Automation](https://docs.microsoft.com/en-us/azure/automation/extension-based-hybrid-runbook-worker-install?tabs=windows)
+
+
+## Creeren van een nieuwe Azure Automation Runbook.
+Je kunt een nieuw Azure Automation runbook maken, waarin het script wordt gehost dat je gaat uitvoeren. 
+Afhankelijk van de versie van runbookruntime die je kiest, moet je ervoor zorgen dat deze versie ook op de Hybrid Worker server staat (denk aan Python en Powershell 7.0)
+
+Ga in je Automation account naar Runbooks en klik daar op **Create a Runbook**
+
+![Image](./../Images/RunPowershellHybrid/Runbook1.jpg)
+
+Hierna moet je een aantal default gegevens invullen.
+
+Vul in: 
+~~~
+
+Name = Logische naam voor het Runbook
+Runbook Type = (kies uit Powershell,Python,Powershell Workflow,Graphical Powershell,Graphical Powershell Workflow) Wij kiezen hier voor Powershell
+Runtime Version = (kies uit 7.2,7.1,5.1) Wij kiezen hier voor 5.1 omdat die by default al op servers staan.
+
+~~~
+![Image](./../Images/RunPowershellHybrid/Runbook2jpg.JPG)
+
+In het scherm wat nu naar voren komt kun je je powershell script invoeren. Wij kiezen er nu hier even voor om een txt bestand te deployen op de desktop.
+
+Vul in: 
+~~~
+
+"from azure" | out-file "C:\Users\*username*\Desktop\hybrid.txt"
+
+~~~
+
+hierna klik je eerst op **Save** en daarna op **Publish**
+
+ ![Image](./../Images/RunPowershellHybrid/Runbook3.JPG)
+
+ 
