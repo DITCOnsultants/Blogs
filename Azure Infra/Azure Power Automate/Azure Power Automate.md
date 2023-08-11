@@ -65,10 +65,16 @@ Ga nu naar Runbooks en klik op **Create a Runbook**
 Vul in: 
 ~~~
 Name = "Geef het Runbook een logische naam"
-Runbook type = "POwershell"
+Runbook type = "POwershell" 
 Runtime version = "5.1"
 ~~~
 
+en klik op **Create**
+
+![Image](./../Images/Powerautomate/Createpowershellrunbook.JPG)
+
+Je komt nu in het runbook uit en daar kun je een powershell script invoeren om te starten.
+Voor dit stuk gaan we naar een powershell script die een AzureDevops Pipeline 
 
 
 ## Azure Site Recovery via Powershell
