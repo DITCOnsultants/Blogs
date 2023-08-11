@@ -11,10 +11,30 @@ In deze blog laat ik je zien hoe je een Automation account maakt,Connect een ser
 
 ![Image](./../Images/RunPowershellHybrid/Praatplaat.JPG)
 
-## Setup Disaster Recovery voor Azure Vm’s
+## Maken van een Azure Automation Account.
 
-Het instellen van een Azure Site Recovery voor een vm kan redelijk eenvoudig zijn. In ons geval hebben we een virtuele machine die uitgevoerd wordt in de regio West-Europe. Voordat we de Disaster Recovery kunnen configureren moet je er voor zorgen dat je de omgeving op de juiste manier geconfigureerd en ontworpen hebt.
-Mocht je willen weten welke vereisten er zijn rondom je architectuur, bekijk dan de onderstaande links.
+Naar mijn idee kun je het Automation Account het beste in een eigen RG stoppen. Hierdoor hou je overzichtelijk wat hoort bij dit Automation account. Hou er netwerk technisch rekening mee dat dit account en alles wat er onder staat bij de omgevingen kan komen.
+
+In dit document beschrijf ik niet hoe je een Resource group moet maken omdat ik er vanuit ga dat dit al bekend is.
+
+Zoek in de zoekbalk naar Automation account en klik hierop.
+
+![Image](./../Images/RunPowershellHybrid/zoekbalk.jpg)
+
+Klik daarna op **Create**
+![Image](./../Images/RunPowershellHybrid/create.jpg)
+
+Vul in: 
+~~~
+
+Resource Group = Aangemaakte Resource group
+Automation Account name= Maak een logische naam aan voor dit account
+Region = Zelfde als de RG
+
+~~~
+
+![Image](./../Images/RunPowershellHybrid/CreateAA1.jpg)
+
 
 -[Support Matrix for Azure VM disaster recovery between Azure Regions](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-support-matrix?WT.mc_id=itopstalk-blog-thmaure)
 
