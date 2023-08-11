@@ -22,6 +22,7 @@ Zoek in de zoekbalk naar Automation account en klik hierop.
 ![Image](./../Images/RunPowershellHybrid/zoekbalk.jpg)
 
 Klik daarna op **Create**
+
 ![Image](./../Images/RunPowershellHybrid/create.jpg)
 
 Vul in: 
@@ -35,39 +36,23 @@ Region = Zelfde als de RG
 
 ![Image](./../Images/RunPowershellHybrid/CreateAA1.jpg)
 
+Klik **Next**
 
--[Support Matrix for Azure VM disaster recovery between Azure Regions](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-support-matrix?WT.mc_id=itopstalk-blog-thmaure)
+Nu kom je in het Advanced tabblad, hier kun je aangeven van welke identity dit account gebruik moet maken in dit geval kiezen wij voor een System Managed account.
 
--[Azure to Azure disaster recovery architecture](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-architecture?WT.mc_id=itopstalk-blog-thmaure)
+![Image](./../Images/RunPowershellHybrid/CreateAA2.jpg)
 
-Er zijn 3 manieren om disaster recovery for Azure vm’s te configuren
+De rest hoeven we voor nu niet aan te passen. Mocht je alleen private access toe willen staan (dus de toegang tot dit account ontsluiten van toegang ergens anders vandaan) dan moet je bij networking Private Access aanklikken.
 
-~~~
-- Azure Powershell/AzureCLI
-- Azure Recovery Service vault
-- replicatie direct starten vanuit de vm
+Voor nu klik op **Review + Create**
+![Image](./../Images/RunPowershellHybrid/CreateAA3.jpg)
 
-~~~
 
-de replicatie direct starten vanuit de vm is de meest gebruikte manier en die zal ik hier dan ook nog verder bespreken.
 
-**Ga naar** de vm via de Azure Portal
-**Open Disaster Recovery** onder Operations
-![Image](./../Images/DisasterRecovery/disaster.png)
+Mocht je meer info willen over een Automation Account en hoe te creeren kijk dan hier
 
-Hier is het makkelijk en hoeven we alleen maar de Target Regio in te vullen. In deze [lijst](https://docs.microsoft.com/en-us/azure/availability-zones/cross-region-replication-azure) zie je wat de Cross regio’s zijn. Hier is het makkelijker en more common sense om deze te kiezen als Target Region.
+-[Create a standalone Azure Automation account](https://learn.microsoft.com/en-us/azure/automation/automation-create-standalone-account?WT.mc_id=modinfra-0000-thmaure&tabs=azureportal)
 
-Hierna moeten we een aantal Advanced settings configureren. ASR geeft zelf al een paar suggesties, maar je kunt dit aanpassen naar wat jullie denken dat correct is.
-
-![Image](./../Images/DisasterRecovery/advanced.png)
-
-Verder kun je ook de Storage en Replication Settings aanpassen.
-Hierbij kun je bij Storage bijvoorbeeld kiezen om niet een Premium SSD maar slechts een HDD disk of een Standard SSD disk te gebruiken, dit om kosten te besparen.
-Verder kun je bij Replication settings de Replication Policy aanpassen en daarmee de sync laten lopen.
-
-![Image](./../Images/DisasterRecovery/replication.png)
-
-Als je alles aangepast hebt naar hoe je dit zelf zou willen dan kun je op Review+Start Replication klikken. Dit zal een aantal uren duren voor dit is aangemaakt en de replicatie heeft gelopen. (Dit is afhankelijk van de grootte van de vm).
 
 ## Failover Azure VM naar een andere regio.
 
