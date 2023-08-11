@@ -61,12 +61,12 @@ Als je een server die on-premises of bij een andere cloudprovider staat wilt ver
 ![Image](./../Images/RunPowershellHybrid/ArcOnboarding.jpg)
 
 
-## Creeren van Hybrid Worker Group.
+## Creëren van Hybrid Worker Group.
 
 Nu kun je Hybrid Worker Group maken en onderhouden voor het uitvoeren van taken die je on-premise ook wilt uitvoeren. Dit biedt veerkracht om taken uit te voeren voor meerdere Hybrid Workers. Met op extensies based Hybrid Workers (preview) kunnen zowel Azure-machines als niet-Azure-machines (via Arc-server) worden beheerd via ARM-sjablonen en -beleid.
 
 Als je een hybrid worker wilt maken (die Windows- en Linux-servers kan zijn) open dan het Automation account en ga naar Hybrid Worker groups.
-![Image](./../Images/RunPowershellHybrid/HWG1.jpg
+![Image](./../Images/RunPowershellHybrid/HWG1.jpg)
 
 Klik hierna op **Create Hybrid Worker Group**
 
@@ -108,7 +108,7 @@ Mocht je willen, kun je hier ook altijd nog meer servers toevoegen maar wij houd
 -[Deploy an extension-based Hybrid Runbook Worker in Azure Automation](https://docs.microsoft.com/en-us/azure/automation/extension-based-hybrid-runbook-worker-install?tabs=windows)
 
 
-## Creeren van een nieuwe Azure Automation Runbook.
+## Creëren van een nieuwe Azure Automation Runbook.
 Je kunt een nieuw Azure Automation runbook maken, waarin het script wordt gehost dat je gaat uitvoeren. 
 Afhankelijk van de versie van runbookruntime die je kiest, moet je ervoor zorgen dat deze versie ook op de Hybrid Worker server staat. (Denk aan Python en Powershell 7.0)
 
