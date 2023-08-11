@@ -4,14 +4,12 @@
 
 ## Voorwoord
 
-Als je een virtuele machine hebt draaien in Azure en je wilt er voor zorgen dat je machines zoveel mogelijk beschermd zijn tegen downtime, dan zijn er meerdere dingen die je wilt bekijken in de termen van availability.
-Je moet zorgen dat je over de benodigde uptime beschikt in de regio waar de vm’s worden uitgevoerd.
-Hiervoor kun je denken aan verschillende storage opties zoals Premium Storage die voor 1 disk een SLA biedt van 99,9%. Verder kun je werken met Availability Sets en Availability zones, hiermee verdeel je een belangrijke server over meerdere datacenters of meerdere zones in 1 regio.
-Echter willen we ook de server beschermen tegen het uitvallen van een regio. Hiervoor is Azure Site Recovery (ASR) een geschikte oplossing. Hiermee repliceren we de machine asynchroon naar de andere regio of regio’s.
+Als u uw on-premises omgeving wilt automatiseren, is Azure Arc Server een geweldige aanbieding voor het onboarden van Azure-beheerservices zoals Azure Monitor,Sentinel maar ook Defender en IAM.
+Een van de andere voordelen die we nog hebben is het gebruik van Hybrid Workers. Hierdoor kun je RUnbooks,Logic Apps of Power Automate gebruiken om het beheer of deploy van dingen op je on-premise vm.
 
-Laten we nu de setup van ASR er eens bijpakken.
+In deze blog laat ik je zien hoe je een Automation account maakt,Connect een server met Azure ARC,Creeren van een Hybrid Workers group en daarna het creeren en deployen van een Runbook op basis van Powershell.
 
-
+![Image](./../Images/RunPowershellHybrid/Praatplaat.JPG)
 
 ## Setup Disaster Recovery voor Azure Vm’s
 
