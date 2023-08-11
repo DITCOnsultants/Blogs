@@ -95,4 +95,14 @@ Selecteer de machine waarop je Hybrid Worker wil configureren en klik op **Add**
 ![Image](./../Images/RunPowershellHybrid/HWG5.jpg)
 
 
+Hierna kun je klikken op **Review + Create**
 
+![Image](./../Images/RunPowershellHybrid/HWG6.jpg)
+
+Hierna zal de Hybrid Extension automatisch op deze machine geinstalleerd worden.
+
+![Image](./../Images/RunPowershellHybrid/HWG7.jpg)
+
+Mocht je willen kun je hier ook altijd nog meer servers toevoegen maar wij houden het hier even bij 1.
+
+-[Deploy an extension-based Hybrid Runbook Worker in Azure Automation](https://docs.microsoft.com/en-us/azure/automation/extension-based-hybrid-runbook-worker-install?tabs=windows)
