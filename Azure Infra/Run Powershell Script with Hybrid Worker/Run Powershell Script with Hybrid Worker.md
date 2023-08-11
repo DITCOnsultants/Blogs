@@ -61,7 +61,7 @@ Als je een server die on-premises of bij een andere cloudprovider staat wilt ver
 ![Image](./../Images/RunPowershellHybrid/ArcOnboarding.jpg)
 
 
-## Creëren van Hybrid Worker Group.
+## Creëren van Hybrid Worker Group
 
 Nu kun je Hybrid Worker Group maken en onderhouden voor het uitvoeren van taken die je on-premise ook wilt uitvoeren. Dit biedt veerkracht om taken uit te voeren voor meerdere Hybrid Workers. Met op extensies based Hybrid Workers (preview) kunnen zowel Azure-machines als niet-Azure-machines (via Arc-server) worden beheerd via ARM-sjablonen en -beleid.
 
