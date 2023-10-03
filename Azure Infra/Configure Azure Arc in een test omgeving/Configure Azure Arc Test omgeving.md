@@ -4,16 +4,12 @@
 
 ## Voorwoord
 
-Als je een virtuele machine hebt draaien in Azure en je wilt er voor zorgen dat je machines zoveel mogelijk beschermd zijn tegen downtime, dan zijn er meerdere dingen die je wilt bekijken in de termen van availability.
-Je moet zorgen dat je over de benodigde uptime beschikt in de regio waar de vm’s worden uitgevoerd.
-Hiervoor kun je denken aan verschillende storage opties zoals Premium Storage die voor 1 disk een SLA biedt van 99,9%. Verder kun je werken met Availability Sets en Availability zones, hiermee verdeel je een belangrijke server over meerdere datacenters of meerdere zones in 1 regio.
-Echter willen we ook de server beschermen tegen het uitvallen van een regio. Hiervoor is Azure Site Recovery (ASR) een geschikte oplossing. Hiermee repliceren we de machine asynchroon naar de andere regio of regio’s.
-
-Laten we nu de setup van ASR er eens bijpakken.
+Soms is het handig om even snel een test omgeving op te zetten, Zodat je dingen kunt testen. Echter is het niet altijd mogelijk om een hele Hyper-V omgeving op te tuigen.
+Hoe ga je dat snel doen? Wat heb je daar voor nodig? en kan dit in Azure? Meerdere vragen die ik nog wel eens gesteld krijg.
+Dus in deze blog ga ik jullie uitleggen hoe je in Azure een Hyper-V omgeving kunt bouwen, en hoe je daarna Azure ARC erop installeert zodat je de machines kunt beheren via de Azure Portal.
 
 
-
-## Setup Disaster Recovery voor Azure Vm’s
+## Build a New Windows Machine that is able to use Hyper-V (by Portal and Powershell)
 
 Het instellen van een Azure Site Recovery voor een vm kan redelijk eenvoudig zijn. In ons geval hebben we een virtuele machine die uitgevoerd wordt in de regio West-Europe. Voordat we de Disaster Recovery kunnen configureren moet je er voor zorgen dat je de omgeving op de juiste manier geconfigureerd en ontworpen hebt.
 Mocht je willen weten welke vereisten er zijn rondom je architectuur, bekijk dan de onderstaande links.
