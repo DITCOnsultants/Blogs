@@ -63,9 +63,11 @@ Ga naar de resource die we net hebben aangemaakt en klik op **Connect**.
 ![Image](./../Images/AzureArc/connect.JPG)
 
 
-Mocht je een andere manier dan Native RDP hebben geconfigureerd connect via die manier anders klik op **select** bij Native RDP.
+Mocht je een andere manier dan Native RDP hebben geconfigureerd connect via die manier anders klik op **select** bij Native RDP en er word een rdp file gedownload.
+
 
 ![Image](./../Images/AzureArc/RDP.jpg)
+
 
 
 
