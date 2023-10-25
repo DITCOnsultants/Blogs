@@ -125,6 +125,10 @@ New-AzVM -ResourceGroupName $resourceGroupName -Location $location -VM $vmConfig
 ~~~~
 
 
+Login op je machine.
+
+![Image](./../Images/AzureArc/Login.JPG)
+
 
 
 
