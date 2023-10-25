@@ -23,9 +23,34 @@ Zoek daarna op **Windows Server**, en klik daarna op **Create**
 
 ![Image](./../Images/AzureArc/WindowsServer.jpg)
 
-Kies daarna voor **Windows Server 2019 Datacenter**
+Kies daarna voor **Windows Server 2019 Datacenter** en druk op **Create**
+
 
 ![Image](./../Images/AzureArc/WindowsServer1.jpg)
+
+
+
+Vervolgens moet je de onderstaande gegevens invullen..
+
+~~~
+Subscription = "de subscription die je gebruikt om machines te installeren"
+Resource Group = Selecteer een bestaande Resource group of maak een nieuwe aan.
+Virtual Machine name = HV01
+Region = Kies de regio die het dichtst bij je zit. in ons geval is dat West-Europe
+Availablility Options = No Infrastructure redundancy required ( Kies niet hiervoor als je een live omgeving ervan gaat maken)
+Security Type = Trusted launch virtual machines
+Image = Windows Server 2019 Datacenter - x64 Gen2
+Size = Dit moet een V3 verie zijn om Hyper-V te kunnen installeren. Dus de Stansdard_D8s_v3
+
+Username = Zelf in te vullen
+Password = Zelf in te vullen
+
+de rest mag default blijven
+~~~
+![Image](./../Images/AzureArc/WindowsServer2.jpg)
+
+En klik op **Review & Create** 
+
 
 
 ## Failover Azure VM naar een andere regio.
