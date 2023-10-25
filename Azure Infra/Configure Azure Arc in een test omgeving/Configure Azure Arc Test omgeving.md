@@ -9,13 +9,14 @@ Hoe ga je dat snel doen? Wat heb je daar voor nodig? en kan dit in Azure? Meerde
 Dus in deze blog ga ik jullie uitleggen hoe je in Azure een Hyper-V omgeving kunt bouwen, en hoe je daarna Azure ARC erop installeert zodat je de machines kunt beheren via de Azure Portal.
 
 
-## Build a New Windows Machine that is able to use Hyper-V (by Portal and Powershell)
+## Bouw een nieuwe Server die geschikt is voor Hyper-V (by Portal and Powershell)
 
 We gaan nu via de portal een nieuwe machine bouwen die voldoet aan de eisen om Hyper-V te mogen installeren.(heel veel machines in Azure hebben namelijk niet de juiste specs om een Hyper-V omgeving te kunnen optuigen.)
 
 Ga naar http://portal.azure.com en log in met de credentials om een machine te kunnen bouwen.
 Ga naar meer Resources.
-![Image](./../Images/Configure Azure Arc Test Omgeving/Resource.JPG)
+
+![Image](./../Images/DisasterRecovery/replication1.jpg)
 
 
 
