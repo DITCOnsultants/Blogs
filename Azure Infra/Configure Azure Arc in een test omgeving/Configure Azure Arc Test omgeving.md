@@ -11,41 +11,15 @@ Dus in deze blog ga ik jullie uitleggen hoe je in Azure een Hyper-V omgeving kun
 
 ## Build a New Windows Machine that is able to use Hyper-V (by Portal and Powershell)
 
-Het instellen van een Azure Site Recovery voor een vm kan redelijk eenvoudig zijn. In ons geval hebben we een virtuele machine die uitgevoerd wordt in de regio West-Europe. Voordat we de Disaster Recovery kunnen configureren moet je er voor zorgen dat je de omgeving op de juiste manier geconfigureerd en ontworpen hebt.
-Mocht je willen weten welke vereisten er zijn rondom je architectuur, bekijk dan de onderstaande links.
+We gaan nu via de portal een nieuwe machine bouwen die voldoet aan de eisen om Hyper-V te mogen installeren.(heel veel machines in Azure hebben namelijk niet de juiste specs om een Hyper-V omgeving te kunnen optuigen.)
 
--[Support Matrix for Azure VM disaster recovery between Azure Regions](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-support-matrix?WT.mc_id=itopstalk-blog-thmaure)
+Ga naar http://portal.azure.com en log in met de credentials om een machine te kunnen bouwen.
+Ga naar meer Resources.
+![Image](./../Images/  )
 
--[Azure to Azure disaster recovery architecture](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-architecture?WT.mc_id=itopstalk-blog-thmaure)
 
-Er zijn 3 manieren om disaster recovery for Azure vm’s te configuren
 
-~~~
-- Azure Powershell/AzureCLI
-- Azure Recovery Service vault
-- replicatie direct starten vanuit de vm
 
-~~~
-
-de replicatie direct starten vanuit de vm is de meest gebruikte manier en die zal ik hier dan ook nog verder bespreken.
-
-**Ga naar** de vm via de Azure Portal
-**Open Disaster Recovery** onder Operations
-![Image](./../Images/DisasterRecovery/disaster.png)
-
-Hier is het makkelijk en hoeven we alleen maar de Target Regio in te vullen. In deze [lijst](https://docs.microsoft.com/en-us/azure/availability-zones/cross-region-replication-azure) zie je wat de Cross regio’s zijn. Hier is het makkelijker en more common sense om deze te kiezen als Target Region.
-
-Hierna moeten we een aantal Advanced settings configureren. ASR geeft zelf al een paar suggesties, maar je kunt dit aanpassen naar wat jullie denken dat correct is.
-
-![Image](./../Images/DisasterRecovery/advanced.png)
-
-Verder kun je ook de Storage en Replication Settings aanpassen.
-Hierbij kun je bij Storage bijvoorbeeld kiezen om niet een Premium SSD maar slechts een HDD disk of een Standard SSD disk te gebruiken, dit om kosten te besparen.
-Verder kun je bij Replication settings de Replication Policy aanpassen en daarmee de sync laten lopen.
-
-![Image](./../Images/DisasterRecovery/replication.png)
-
-Als je alles aangepast hebt naar hoe je dit zelf zou willen dan kun je op Review+Start Replication klikken. Dit zal een aantal uren duren voor dit is aangemaakt en de replicatie heeft gelopen. (Dit is afhankelijk van de grootte van de vm).
 
 ## Failover Azure VM naar een andere regio.
 
