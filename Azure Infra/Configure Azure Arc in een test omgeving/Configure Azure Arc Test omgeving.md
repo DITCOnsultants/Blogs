@@ -19,7 +19,9 @@ Ga naar meer Resources.
 
 ![Image](./../Images/AzureArc/Resource.JPG)
 
+Zoek daarna op ** Windows Server **
 
+![Image](./../Images/AzureArc/WindowsServer.jpg)
 
 
 
