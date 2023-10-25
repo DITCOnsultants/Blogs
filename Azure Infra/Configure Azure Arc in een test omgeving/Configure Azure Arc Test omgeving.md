@@ -69,6 +69,63 @@ Mocht je een andere manier dan Native RDP hebben geconfigureerd connect via die 
 ![Image](./../Images/AzureArc/RDP.jpg)
 
 
+Open de RDP file en login op de nieuwe Server met de Admin credentials die je toen straks hebt opgegeven.
+
+
+Mocht je dit willen uitvoeren via Powershell dan is hieronder het Powershell Script hiervoor.
+
+
+~~~~
+# Variables
+$resourceGroupName = "YourResourceGroupName"
+$vmName = "YourVMName"
+$location = "East US" # Change this to the desired Azure region
+$adminUsername = "YourAdminUsername"
+$adminPassword = "YourAdminPassword"
+$vmSize = "Standard_D8s_v3"
+$imagePublisher = "MicrosoftWindowsServer"
+$imageOffer = "WindowsServer"
+$imageSku = "2019-Datacenter"
+$nicName = "YourNICName"
+$vnetName = "YourVNetName"
+$subNetName = "YourSubnetName"
+
+# Create a new resource group
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+
+# Create a new virtual network
+$subnet = New-AzVirtualNetworkSubnetConfig -Name $subNetName -AddressPrefix "10.0.1.0/24"
+$vnet = New-AzVirtualNetwork -ResourceGroupName $resourceGroupName -Name $vnetName -Location $location -AddressPrefix "10.0.0.0/16" -Subnet $subnet
+
+# Create a public IP address
+$publicIp = New-AzPublicIpAddress -ResourceGroupName $resourceGroupName -Name "YourPublicIP" -AllocationMethod Dynamic -Location $location
+
+# Create a network security group (optional)
+$nsg = New-AzNetworkSecurityGroup -ResourceGroupName $resourceGroupName -Name "YourNSG" -Location $location
+
+# Allow RDP traffic (optional)
+$rdpRule = New-AzNetworkSecurityRuleConfig -Name "Allow-RDP" -Description "Allow RDP" -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix "*" -SourcePortRange "*" -DestinationAddressPrefix "*" -DestinationPortRange 3389
+$nsg | Add-AzNetworkSecurityRuleConfig -NetworkSecurityRule $rdpRule
+$nsg | Set-AzNetworkSecurityGroup
+
+# Create a network interface
+$nic = New-AzNetworkInterface -Name $nicName -ResourceGroupName $resourceGroupName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $publicIp.Id -NetworkSecurityGroupId $nsg.Id
+
+# Create the virtual machine configuration
+$vmConfig = New-AzVMConfig -VMName $vmName -VMSize $vmSize
+$vmConfig = Set-AzVMOperatingSystem -VM $vmConfig -Windows -ComputerName $vmName -Credential (New-Object PSCredential -ArgumentList $adminUsername, (ConvertTo-SecureString -AsPlainText -Force $adminPassword))
+
+
+$vmConfig = Set-AzVMSourceImage -VM $vmConfig -PublisherName $imagePublisher -Offer $imageOffer -Skus $imageSku -Version "latest"
+$vmConfig = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
+
+# Create the VM
+New-AzVM -ResourceGroupName $resourceGroupName -Location $location -VM $vmConfig
+
+~~~~
+
+
+
 
 
 ## Failover Azure VM naar een andere regio.
