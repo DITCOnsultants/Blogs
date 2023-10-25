@@ -14,9 +14,10 @@ Dus in deze blog ga ik jullie uitleggen hoe je in Azure een Hyper-V omgeving kun
 We gaan nu via de portal een nieuwe machine bouwen die voldoet aan de eisen om Hyper-V te mogen installeren.(heel veel machines in Azure hebben namelijk niet de juiste specs om een Hyper-V omgeving te kunnen optuigen.)
 
 Ga naar http://portal.azure.com en log in met de credentials om een machine te kunnen bouwen.
+
 Ga naar meer Resources.
 
-![Image](./../Images/DisasterRecovery/replication1.jpg)
+![Image](./../Images/AzureArc/Resource.JPG)
 
 
 
