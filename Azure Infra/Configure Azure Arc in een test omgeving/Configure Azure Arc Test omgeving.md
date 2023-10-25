@@ -51,6 +51,9 @@ de rest mag default blijven
 
 En klik op **Review & Create** 
 
+Na de Review kun je op **Create** klikken
+
+![Image](./../Images/AzureArc/Deploy.JPG)
 
 
 ## Failover Azure VM naar een andere regio.
