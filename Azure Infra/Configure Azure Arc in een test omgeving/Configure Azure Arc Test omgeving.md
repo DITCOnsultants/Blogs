@@ -19,9 +19,10 @@ Ga naar meer Resources.
 
 ![Image](./../Images/AzureArc/Resource.JPG)
 
-Zoek daarna op ** Windows Server **
+Zoek daarna op **Windows Server**, en klik daarna op **Create**
 
 ![Image](./../Images/AzureArc/WindowsServer.jpg)
+
 
 
 
