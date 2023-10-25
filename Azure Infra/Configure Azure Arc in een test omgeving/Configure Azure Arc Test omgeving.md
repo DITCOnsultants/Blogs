@@ -57,9 +57,14 @@ Na de Review kun je op **Create** klikken
 
 Na een tijdje is de machine klaar en gaan we connecten en inloggen op de machine.
 
-Ga naar de resource die we net hebben aangemaakt en klik op Connect.
+Ga naar de resource die we net hebben aangemaakt en klik op **Connect**.
 
 ![Image](./../Images/AzureArc/connect.JPG)
+
+
+Mocht je een andere manier dan Native RDP hebben geconfigureerd connect via die manier anders klik op **select** bij Native RDP.
+
+![Image](./../Images/AzureArc/RDP.jpg)
 
 
 
