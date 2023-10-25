@@ -23,7 +23,9 @@ Zoek daarna op **Windows Server**, en klik daarna op **Create**
 
 ![Image](./../Images/AzureArc/WindowsServer.jpg)
 
+Kies daarna voor **Windows Server 2019 Datacenter**
 
+![Image](./../Images/AzureArc/WindowsServer1.jpg)
 
 
 ## Failover Azure VM naar een andere regio.
