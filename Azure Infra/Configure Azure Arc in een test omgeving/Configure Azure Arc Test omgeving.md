@@ -15,7 +15,7 @@ We gaan nu via de portal een nieuwe machine bouwen die voldoet aan de eisen om H
 
 Ga naar http://portal.azure.com en log in met de credentials om een machine te kunnen bouwen.
 Ga naar meer Resources.
-![Image](./../Images/  )
+![Image](./../Images/Configure Azure Arc Test Omgeving/Resource.JPG)
 
 
 
