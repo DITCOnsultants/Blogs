@@ -29,8 +29,9 @@ Kies daarna voor **Windows Server 2019 Datacenter** en druk op **Create**
 ![Image](./../Images/AzureArc/WindowsServer1.jpg)
 
 
-
+-----
 Vervolgens moet je de onderstaande gegevens invullen..
+------
 
 ~~~
 Subscription = "de subscription die je gebruikt om machines te installeren"
