@@ -55,6 +55,13 @@ Na de Review kun je op **Create** klikken
 
 ![Image](./../Images/AzureArc/Deploy.JPG)
 
+Na een tijdje is de machine klaar en gaan we connecten en inloggen op de machine.
+
+Ga naar de resource die we net hebben aangemaakt en klik op Connect.
+
+![Image](./../Images/AzureArc/connect.JPG)
+
+
 
 ## Failover Azure VM naar een andere regio.
 
