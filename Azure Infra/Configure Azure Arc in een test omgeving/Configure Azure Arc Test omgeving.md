@@ -144,7 +144,20 @@ In het before you begin scherm klik je op **Next**
 ![Image](./../Images/AzureArc/HyperV2.JPG)
 
 Selecteer **Role-Based or Feature-Based Installation**
+
 ![Image](./../Images/AzureArc/HyperV3.JPG)
+
+Je kunt nu kiezen op welke server je de installatie wilt gaan doen.We willen dit installeren op de nieuw gebouwde server.
+Dus kunnen we klikken op **Next**
+
+![Image](./../Images/AzureArc/HyperV4.JPG)
+
+
+Nu komen we op het scherm om de role te installeren. Klik op **Hyper-V**
+![Image](./../Images/AzureArc/HyperV5.JPG)
+
+Daarna komt er een pop-up naar boven waarbij ook de features worden weergegeven die noodzakelijk zijn om Hyper-V te kunnen gebruiken.
+Klik dan ook op **Add Features**
 
 
 
