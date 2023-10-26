@@ -9,7 +9,7 @@ Hoe ga je dat snel doen? Wat heb je daar voor nodig? en kan dit in Azure? Meerde
 Dus in deze blog ga ik jullie uitleggen hoe je in Azure een Hyper-V omgeving kunt bouwen, en hoe je daarna Azure ARC erop installeert zodat je de machines kunt beheren via de Azure Portal.
 
 
-## Bouw een nieuwe Server die geschikt is voor Hyper-V (by Portal and Powershell)
+## Bouw een nieuwe Server die geschikt is voor Hyper-V (Portal)
 
 We gaan nu via de portal een nieuwe machine bouwen die voldoet aan de eisen om Hyper-V te mogen installeren.(heel veel machines in Azure hebben namelijk niet de juiste specs om een Hyper-V omgeving te kunnen optuigen.)
 
@@ -72,7 +72,7 @@ Mocht je een andere manier dan Native RDP hebben geconfigureerd connect via die 
 Open de RDP file en login op de nieuwe Server met de Admin credentials die je toen straks hebt opgegeven.
 
 
-Mocht je dit willen uitvoeren via Powershell dan is hieronder het Powershell Script hiervoor.
+## Bouw een nieuwe Server die geschikt is voor Hyper-V (Powershell)
 
 
 ~~~~
@@ -132,18 +132,21 @@ Login op je machine.
 
 
 
-## Failover Azure VM naar een andere regio.
+## Installeer Hyper-V en installeer WIndows 2019 op een Hyper-V machine.
 
-Nadat we de Disaster recovery hebben ingesteld en de replicatie heeft gelopen kunnen we nu wat grafische bronnen bekijken die duidelijk aangeven wat er gebeurt en hoe de resources met elkaar verbonden zijn.
-![Image](./../Images/DisasterRecovery/replication1.jpg)
+Als je bent ingelogd op de machine gaan we beginnen met de installatie van de Hyper-V Features.
+Open Server Manager en klik op **Manage** en daarna op **Add Roles and Features**
 
-Je kunt een failover uitvoeren waarmee je een productie failover uitvoert van de vm. Als de regio waar de source op staat nog beschikbaar is kun je ASR de machine laten stoppen en de laatste wijzigingen laten syncen, zodoende hebben we geen gegevens verlies.
-Dit is uiteraard alleen mogelijk als de source regio nog bestaat. Anders neemt ASR de laatst bestaande restore point.
-![Image](./../Images/DisasterRecovery/restorepoint.jpg)
+![IMage](./../Images/AzureArc/HyperV1.JPG)
 
-Voorbereid zijn op disaster recovery is uitstekend. We willen er echter zeker van zijn dat het werkt als je het nodig hebt. Je wilt niet wachten tot een echte ramp toeslaat om erachter te komen of alles correct is ingesteld. Dit is waar Testfailover voor is. Testfailover is een mogelijkheid voor ons om failover van de virtuele machine naar een geïsoleerd virtueel netwerk in de doelregio te maken om de virtuele machine en toepassing te kunnen testen zonder enige impact op de productie-implementatie.‎
+In het before you begin scherm klik je op **Next**
 
-‎Als je meerdere vm's hebt die je in een specifieke volgorde wilt failoveren en misschien zelfs enkele extra scripts wilt laten uitvoeren om volledig failover uit een regio uit te voeren, biedt ASR ons ook [Recoveryplans](https://docs.microsoft.com/en-us/azure/site-recovery/recovery-plan-overview?WT.mc_id=itopstalk-blog-thmaure). Recoveryplans zijn idealer voor complexere scenario's dan slechts één virtuele machine.‎
+![Image](./../Images/AzureArc/HyperV2.JPG)
+
+Selecteer **Role-Based or Feature-Based Installation**
+![Image](./../Images/AzureArc/HyperV3.JPG)
+
+
 
 
 ## Azure Site Recovery via Powershell
