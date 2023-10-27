@@ -177,7 +177,18 @@ Vervolgens selecteer je een Netwerkkaart die je speciaal geselecteerd hebt voor 
 
 ![Image](./../Images/AzureArc/HyperV9.JPG)
 
+Hierna komen we in het tabblad Migration. Mocht je meerdere Hyper-V nodes hebben dan kun je er voor kiezen om Live Migration aan te zetten.
+Voor nu is dit slechts een test en hebben we dus ook maar 1 node. We zetten hiet de Migration dan ook niet aan. Dus klik op **Next**
 
+![Image](./../Images/AzureArc/HyperV10.JPG)
+
+Vul de default locaties voor de VM's in en klik op **Next**
+
+![Image](./../Images/AzureArc/HyperV11.JPG)
+
+Nu is alles geconfigureerd en kunnen we op **Install** Klikken.
+
+![Image](./../Images/AzureArc/HyperV12.JPG)
 
 
 ## Azure Site Recovery via Powershell
