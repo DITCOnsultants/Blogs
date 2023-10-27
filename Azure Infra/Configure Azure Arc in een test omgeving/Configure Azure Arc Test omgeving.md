@@ -40,7 +40,7 @@ Virtual Machine name = HV01
 Region = Kies de regio die het dichtst bij je zit. in ons geval is dat West-Europe
 Availablility Options = No Infrastructure redundancy required ( Kies niet hiervoor als je een live omgeving ervan gaat maken)
 Security Type = Trusted launch virtual machines
-Image = Windows Server 2019 Datacenter - x64 Gen2
+Image = Windows Server 2019 Datacenter - x64 Gen1 (Let op dit Moet **GEN1** zijn anders werkt het niet)
 Size = Dit moet een V3 verie zijn om Hyper-V te kunnen installeren. Dus de Stansdard_D8s_v3
 
 Username = Zelf in te vullen
