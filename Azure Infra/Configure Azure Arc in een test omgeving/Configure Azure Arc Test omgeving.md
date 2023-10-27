@@ -210,13 +210,16 @@ Bouw nu 2 Virtuele Windows Servers. Hiermee kunnen we laten zien hoe je AzureArc
 
 ## Azure Arc Configureren
 
+U kunt Linux- en Windows-servers onboarden met behulp van het Azure Arc Center in de Azure Portal.
+
+Wanneer je je in de Azure Portal bevindt Zoek op Azure Arc.
+
+![Image](./../Images/AzureArc/Arc1.JPG)
+
+Klik dan op **Infrastructure** en daarna op **ADD** bij Servers.
+
+![Image](./../Images/AzureArc/Arc2.JPG)
 
 
 
-
-Mocht je nu veel machines hebben die toegevoegd moeten worden dan zou het makkelijk kunnen zijn om dit via Powershell uit te voeren.
-Hieronder een link van Microsoft learn waarbij je via Powershell ASR kunt enable en replicaties kunt starten.
-
-~~~
-https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-powershell
-~~~
+![Image](./../Images/AzureArc/Arc3.JPG)
