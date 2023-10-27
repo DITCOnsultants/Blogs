@@ -82,7 +82,7 @@ $vmName = "YourVMName"
 $location = "East US" # Change this to the desired Azure region
 $adminUsername = "YourAdminUsername"
 $adminPassword = "YourAdminPassword"
-$vmSize = "Standard_D8s_v3"
+$vmSize = "Standard_D8s_v3" (nodig voor een Gen1 machine)
 $imagePublisher = "MicrosoftWindowsServer"
 $imageOffer = "WindowsServer"
 $imageSku = "2019-Datacenter"
@@ -115,12 +115,12 @@ $nic = New-AzNetworkInterface -Name $nicName -ResourceGroupName $resourceGroupNa
 $vmConfig = New-AzVMConfig -VMName $vmName -VMSize $vmSize
 $vmConfig = Set-AzVMOperatingSystem -VM $vmConfig -Windows -ComputerName $vmName -Credential (New-Object PSCredential -ArgumentList $adminUsername, (ConvertTo-SecureString -AsPlainText -Force $adminPassword))
 
-
 $vmConfig = Set-AzVMSourceImage -VM $vmConfig -PublisherName $imagePublisher -Offer $imageOffer -Skus $imageSku -Version "latest"
 $vmConfig = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 
 # Create the VM
 New-AzVM -ResourceGroupName $resourceGroupName -Location $location -VM $vmConfig
+
 
 ~~~~
 
@@ -154,10 +154,28 @@ Dus kunnen we klikken op **Next**
 
 
 Nu komen we op het scherm om de role te installeren. Klik op **Hyper-V**
+
 ![Image](./../Images/AzureArc/HyperV5.JPG)
 
 Daarna komt er een pop-up naar boven waarbij ook de features worden weergegeven die noodzakelijk zijn om Hyper-V te kunnen gebruiken.
 Klik dan ook op **Add Features**
+
+![Image](./../Images/AzureArc/HyperV6.JPG)
+
+Nu is Hyper-V geselecteerd en kunnen we verder. Klik op **Next**
+
+![Image](./../Images/AzureArc/HyperV7.JPG)
+
+Klik bij Features ook weer op **Next**
+We gaan nu door naar de configuratie van Hyper-V
+
+Je komt nu uit in het beginscherm van Hyper-V configuratie en klik op **Next**
+
+![Image](./../Images/AzureArc/HyperV8.JPG)
+
+Vervolgens selecteer je een Netwerkkaart die je speciaal geselecteerd hebt voor Hyper-V en klik op **Next**
+
+![Image](./../Images/AzureArc/HyperV9.JPG)
 
 
 
