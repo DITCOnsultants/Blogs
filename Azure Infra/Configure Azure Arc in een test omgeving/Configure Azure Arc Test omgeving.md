@@ -8,6 +8,12 @@ Soms is het handig om even snel een test omgeving op te zetten, Zodat je dingen 
 Hoe ga je dat snel doen? Wat heb je daar voor nodig? en kan dit in Azure? Meerdere vragen die ik nog wel eens gesteld krijg.
 Dus in deze blog ga ik jullie uitleggen hoe je in Azure een Hyper-V omgeving kunt bouwen, en hoe je daarna Azure ARC erop installeert zodat je de machines kunt beheren via de Azure Portal.
 
+<ins>Wat is Azure Arc:</ins>
+
+Met Azure Arc kun je Windows- en Linux-machines beheren die buiten Azure worden gehost in Azure. Dit betekent dat je Azure-services kunt gebruiken op fysieke servers of servers die worden uitgevoerd in services van andere cloudproviders.
+
+Azure Arc is in september 2020 algemeen beschikbaar geworden.
+
 
 ## Bouw een nieuwe Server die geschikt is voor Hyper-V (Portal)
 
@@ -191,7 +197,22 @@ Nu is alles geconfigureerd en kunnen we op **Install** Klikken.
 ![Image](./../Images/AzureArc/HyperV12.JPG)
 
 
-## Azure Site Recovery via Powershell
+~~~~
+Mocht je Hyper-V willen deployen via Powershell gebruik dan onderstaande regel
+
+Install-WindowsFeature -Name Hyper-V -IncludeManagementTools
+
+~~~~
+
+Bouw nu 2 Virtuele Windows Servers. Hiermee kunnen we laten zien hoe je AzureArc kunt configureren.
+
+
+
+## Azure Arc Configureren
+
+
+
+
 
 Mocht je nu veel machines hebben die toegevoegd moeten worden dan zou het makkelijk kunnen zijn om dit via Powershell uit te voeren.
 Hieronder een link van Microsoft learn waarbij je via Powershell ASR kunt enable en replicaties kunt starten.
