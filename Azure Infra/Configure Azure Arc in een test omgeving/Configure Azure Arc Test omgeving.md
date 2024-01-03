@@ -259,4 +259,18 @@ Bij Prerequisites bekijk deze en klik daarna op **Next**
 
 ![Image](./../Images/AzureArc/ArcServer2.JPG)
 
+Nu gaan we de Resource details invullen
+
+~~~~
+Subscription = de bestaande Subscription
+Resource group = een resource group die je gemaakt hebt voor Azure ARC
+
+Region = Regio het dichtst in de buurt van je locatie. 
+Operating System = Linux of Windows
+
+Connectivity method = Public or Private endpoint afhankelijk wat je geselecteerd hebt.
+~~~~
+Klik daarna op **Next**
+
+![Image](./../Images/AzureArc/ArcServer3.JPG)
 
