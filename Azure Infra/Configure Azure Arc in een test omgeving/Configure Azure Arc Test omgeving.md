@@ -222,6 +222,8 @@ Stop-Service WindowsAzureGuestAgent -Force -Verbose
 ~~~~
 
 Mocht het ndoig zijn dan kun je nog een Firewall rule aanmaken om het toe te staan dat er connectie gemaakt word.
+New-NetFirewallRule -Name BlockAzureIMDS -DisplayName "Block access to Azure IMDS" -Enabled True -Profile Any -Direction Outbound -Action Block -RemoteAddress 169.254.169.254
+
 
 
 ## Azure Arc Configureren
@@ -240,3 +242,10 @@ Nu kun je kiezen voor  Single,Multiple of Update management.
 
 
 ![Image](./../Images/AzureArc/Arc3.JPG)
+
+~~~~
+Single = 1 machine 1 per keer installeren
+Multiple = meerdere machines installeren via een Service Principal, hiermee kun je het script geautomatiseerd laten lopen zonder tussenkomst op meerdere machines.
+Update Management = Machines die in Azure Update Management staan worden doormiddel van een Service principal toegevoegd aan Azure ARC
+~~~~
+
