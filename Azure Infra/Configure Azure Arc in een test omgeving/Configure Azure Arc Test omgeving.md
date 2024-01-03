@@ -254,3 +254,9 @@ Aangezien we het gaan gebruiken voor een test zou ik kiezen voor Single als je s
 We kiezen nu dus voor **Generate Script** bij  Add a single server
 
 ![Image](./../Images/AzureArc/ArcServer1.JPG)
+
+Bij Prerequisites bekijk deze en klik daarna op **Next**
+
+![Image](./../Images/AzureArc/ArcServer2.JPG)
+
+
