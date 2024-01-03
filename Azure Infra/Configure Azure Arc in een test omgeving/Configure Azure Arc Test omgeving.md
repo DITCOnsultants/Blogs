@@ -274,3 +274,12 @@ Klik daarna op **Next**
 
 ![Image](./../Images/AzureArc/ArcServer3.JPG)
 
+Daarna kun je Tags aangeven voor de Servers mocht dat nodig zijn. Bijvoorbeeld voor Backup of responsible groups, locatie,enz,enz
+Klik daarna op **Next**
+
+![Image](./../Images/AzureArc/ArcServer4.JPG)
+
+Daarna krijg je het script te zien. Je kunt deze kopieren of je kunt de ps1 downloaden. Download de PS1 en kopieer die naar de Hyper-V server.
+
+![Image](./../Images/AzureArc/ArcServer5.JPG)
+
