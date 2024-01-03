@@ -206,13 +206,29 @@ Install-WindowsFeature -Name Hyper-V -IncludeManagementTools
 
 Bouw nu 2 Virtuele Windows Servers. Hiermee kunnen we laten zien hoe je AzureArc kunt configureren.
 
+## Configureer je VM zodat je Azure Arc kunt installeren op een Azure VM.
+
+Normaal gesproken installeer je natuurlijk geen Azure ARC op een Azure VM machine.
+Daarom moeten we de machine een klein beetje tweaken om te kunnen gaan spelen met AzureArc.
+
+Open hiervoor Powershell en voer de volgende dingen in 
+
+~~~~
+[System.Environment]::SetEnvironmentVariable("MSFT_ARC_TEST",'true', [System.EnvironmentVariableTarget]::Machine)
+
+Set-Service WindowsAzureGuestAgent -StartupType Disabled -Verbose
+Stop-Service WindowsAzureGuestAgent -Force -Verbose
+
+~~~~
+
+Mocht het ndoig zijn dan kun je nog een Firewall rule aanmaken om het toe te staan dat er connectie gemaakt word.
 
 
 ## Azure Arc Configureren
 
 U kunt Linux- en Windows-servers onboarden met behulp van het Azure Arc Center in de Azure Portal.
 
-Wanneer je je in de Azure Portal bevindt Zoek op Azure Arc.
+Wanneer je je in de Azure Portal bevindt Zoek op **Azure Arc**.
 
 ![Image](./../Images/AzureArc/Arc1.JPG)
 
@@ -220,6 +236,7 @@ Klik dan op **Infrastructure** en daarna op **ADD** bij Servers.
 
 ![Image](./../Images/AzureArc/Arc2.JPG)
 
+Nu kun je kiezen voor  Single,Multiple of Update management.
 
 
 ![Image](./../Images/AzureArc/Arc3.JPG)
