@@ -297,3 +297,16 @@ Vul hier je emailadres in voor Azure. en klik op **Next**
 Vul je wachtwoord in en klik op **Next**
 
 ![image](./../Images/AzureArc/ArcServer8.JPG)
+
+Hierna geeft powershell aan dat het script succesvol is afgerond.
+
+![Image](./../Images/AzureArc/ArcServer9.JPG)
+
+Als je daarna in Azure naar Azure Arc gaat en naar Servers dan zul je deze machine hier zien staan.
+
+![Image](./../Images/AzureArc/Arc4.JPG)
+
+
+Hiermee is de installatie van Azure Arc afgerond en kun je de machines die je hebt gebruiken om Azure Policy's, Update management,Logic Apps of andere dingen op los te laten.
+Later maak ik nog een blog over hoe je Update manager gebruikt op je Azure Arc machines.
+
