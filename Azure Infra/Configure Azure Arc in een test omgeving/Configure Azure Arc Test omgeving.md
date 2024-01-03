@@ -249,3 +249,8 @@ Multiple = meerdere machines installeren via een Service Principal, hiermee kun 
 Update Management = Machines die in Azure Update Management staan worden doormiddel van een Service principal toegevoegd aan Azure ARC
 ~~~~
 
+Aangezien we het gaan gebruiken voor een test zou ik kiezen voor Single als je snel de 2 machines wil toevoegen, of Multiple als je al een service principal hebt.
+
+We kiezen nu dus voor **Generate Script** bij  Add a single server
+
+![Image](./../Images/AzureArc/ArcServer1.JPG)
