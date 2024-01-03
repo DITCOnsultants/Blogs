@@ -283,3 +283,17 @@ Daarna krijg je het script te zien. Je kunt deze kopieren of je kunt de ps1 down
 
 ![Image](./../Images/AzureArc/ArcServer5.JPG)
 
+Login op de Hyper-V server en open Powershell in Admin mode.
+
+In de folder C:\Scripts heb ik de ps1 geplaatst. Deze mag je nu runnen. 
+Aan het einde komt er een pop-up naar voren om je Azure credentials in te vullen. zorg dan je Enhanced mode voor IE uit hebt staan.
+
+![Image](./../Images/AzureArc/ArcServer6.JPG)
+
+Vul hier je emailadres in voor Azure. en klik op **Next**
+
+![image](./../Images/AzureArc/ArcServer7.JPG)
+
+Vul je wachtwoord in en klik op **Next**
+
+![image](./../Images/AzureArc/ArcServer8.JPG)
